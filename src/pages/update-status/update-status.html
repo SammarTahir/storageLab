@@ -8,7 +8,7 @@
 
 
 <ion-content padding>
-  <ion-list>
+  <ion-list radio-group [{ngNode}]="myStatus">
     <ion-item>
       <ion-label>Happy</ion-label>
       <ion-radio value="happy"></ion-radio>
@@ -26,5 +26,5 @@
       <ion-radio value="lazy"></ion-radio>
     </ion-item>
   </ion-list>
-  <button ion-button>Save</button>
+  <button ion-button (click)="saveUpdate()">Save</button>
 </ion-content>
