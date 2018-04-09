@@ -7,12 +7,20 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  myStatus:string;
   constructor(public navCtrl: NavController, public storage: Storage) {
 
   }
   openUpdateStatusPage(){
    this.navCtrl.push(UpdateStatusPage);   
   }
-
+  ionViewWillEnter(){
+    this.storage.get("Status")
+    .then((data)=>{
+      this.myStatus = data;
+    })
+    .catch((err) =>{
+      console.log("Database error")
+    })
+  }
 }
